@@ -1,0 +1,29 @@
+Como manipular arquivos 
+
+Introdução 
+os arquivos de texto possui um formato interno que é identificado pela ocorrência de '\0' separando os caracteres existentes no arquivo por
+linhas.
+
+arquivos binários estamos nonnalmente nos referindo a arquivos que não são de texto e como nn serem textos não faz sentido ler uma linha, pois essa noção não existe, pelo simples fato de esses
+arquivos não estarem organizados por linhas, como é habitual nos nossos arquivos de texto. Por isso, as funcionalidades que são exigidas à linguagem para tratamento de arquivos binários são um
+pouco diferentes das requeridas quando se trata de arquivos de texto. As operações que necessitaremos usar para processar esses arquivos são vulgarmente denominadas
+Acesso Direto, e só podem ser utilizadas em arquivos abertos em modo binário. O Acesso Direto é nonnalmente associado ao processamento de dados. Os dados são escritos em blocos
+da memória para o disco e lidos em blocos do disco para a memória. Dessa fonna é possível escrever um vetor inteiro em disco de uma só vez, enquanto pela fonna tradici-
+onal teríamos que escrever elemento a elemento. O mesmo é válido em relação ao carregamento de um vetor a partir de um arquivo em disco. As funções de leitura e escrita que pennitem Acesso Direto são fread e fwrite.
+
+Escrita de Blocos em Arquivos Binários
+A função Cwrite faz parte do arquivo stdio. h e é responsável por escrever um bloco de bytes existente em  memória para um arquivo aberto em modo binário. A sua sintaxe é:
+int fwrite(const void *ptr, int size, int n, FILE *arq)
+em que:
+ptr - É um ponteiro para void (isto é, pode ser um ponteiro para qualquer tipo) e contém o endereço de memória daquilo que pretendemos guardar em arquivo. 
+const- indica que o parâmetro (ou o que ele aponta) não será alterado.
+size-  Indica o tamanho em bytes de cada um dos elementos que pretendemos escrever.
+n- Indica o número de elementos que queremos escrever.
+arq- Descritor, indicando o arquivo onde os dados irão ser colocados. Esse argumento é a variável que recebeu o resultado da funç~o fopen.
+Retorna: O número de itens que se conseguiu escrever com sucesso. (Atenção, retoma o número de itens (O..n) e não o número de bytes escritos.)
+
+Observação: Analogamente, se x fosse uma variável do tipo double a sua escrita no arquivo seria reali-
+zada através da instrução 
+fwrite(&x,sizeof(double),l,fp);
+ou
+fwrite(&x,sizeof(x),l,fp) ;

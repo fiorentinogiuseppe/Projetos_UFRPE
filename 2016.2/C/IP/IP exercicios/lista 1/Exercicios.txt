@@ -1,0 +1,364 @@
+Estrutura Sequencial
+
+1)??
+1. 
+2. 
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+
+2)
+a. F
+b. V
+c. F
+d. V 
+e. F
+f. F
+g. F
+
+3
+main()
+{
+	printf("e preciso fazer todos os algoritmos para aprender");
+}
+
+4
+main()
+{
+	int var1, var2, var3;
+	var1= 28;
+	var2= 43;
+	var3= (28*43);
+
+	printf("o valor do produto e: %i", var3);
+
+}
+
+5
+main()
+{
+	printf("Digite dois valores: ");
+	int var1, var2;
+	scanf("%i-%i", &var1, &var2);
+	
+	printf("os numeros foram: Var1=%i, Var2= %i", var1, var2);
+
+}
+
+6
+main()
+{
+	printf("Digite um valores: ");
+	int var1;
+	scanf("%i", &var1);
+	
+	int ante, suce;
+	ante= var1-1;
+	suce= var1+1;
+	
+	printf("o seu antecessor e %i, sendo %i seu sucessor", ante, suce);
+
+}
+
+7
+main()
+{
+    char nome[20];
+
+	printf("Digite seu nome: ");
+	scanf("%s", nome);
+
+    int telefo[200];
+
+	printf("Digite seu telefone: ");
+	scanf("%i", telefo);
+
+    char end[20];
+
+	printf("Voce mora na Rua: ");
+	scanf("%s", end);
+
+
+	printf("o seu Nome eh %s. Voceh mora em %s e seu telefone eh %i", nome, end, telefo);
+
+	}
+	
+8
+main()
+{
+	printf("Digite dois valores: ");
+	int var1, var2, var3;
+	scanf("%i-%i", &var1, &var2);
+	
+	var3= (var1+var2);
+	
+	printf("os numeros foram: Var1=%i, Var2= %i. E a soma eh: %i", var1, var2, var3);
+
+}
+
+9
+main()
+{
+	printf("Digite dois valores: ");
+	int var1, var2, var3,var4, var5;
+	scanf("%i-%i-%i-%i", &var1, &var2, &var3, &var4);
+	
+	var5= (var1+var2+var3+var4);
+	
+	printf("A soma eh: %i", var5);
+
+}
+
+10
+main()
+{
+	printf("Digite as 3 notas: ");
+	int var1, var2, var3,var4;
+	scanf("%i-%i-%i-%i", &var1, &var2, &var3);
+	
+	var4= ((var1+var2+var3)/3);
+	
+	printf("A media eh: %i", var4);
+
+}
+
+11
+main()
+{
+	printf("Digite as 3 notas: \n");
+	int var1, var2, var3,var4;
+	scanf("%i-%i-%i-%i", &var1, &var2, &var3);
+
+	printf("Digite seus respectivos pesos: \n");
+	int pe1,pe2,pe3;
+	scanf("%i-%i-%i", &pe1,&pe2, &pe3);
+
+	var4= (((var1*pe1)+(var2*pe2)+(var3*pe3))/(pe1+pe2+pe3));
+
+	printf("A media eh: %i", var4);
+
+}
+
+12
+main()
+{
+	printf("Digite seu salario: ");
+	int var1, Nsal;
+	scanf("%i", &var1);
+
+	Nsal= (var1*1.25);
+
+	printf("O seu novo salario e %i", Nsal);
+
+}
+
+13
+main()
+{
+    int var1;
+
+	printf("Digite seu salario: ");
+	scanf("%i", &var1);
+
+    float aum, Nsal;
+	printf("Digite um percentual de aumento: ");
+	scanf("%f", &aum);
+
+	Nsal= (var1*aum);
+
+	printf("O seu novo salario e %f", Nsal);
+
+}
+
+14
+main()
+{
+    int var1;
+
+	printf("Digite seu salario: ");
+	scanf("%i", &var1);
+
+    float Nsal, grat, imp;
+
+	grat = var1*0.05;
+
+	imp= var1*0.07;
+
+	Nsal= (var1+grat-imp);
+
+	printf("O seu novo salario e %f", Nsal);
+
+}
+
+15
+main()
+{
+    int var1;
+
+	printf("Digite seu salario: ");
+	scanf("%i", &var1);
+
+    float Nsal, imp;
+
+	imp= var1*0.01;
+
+	Nsal= (var1+50-imp);
+
+	printf("O seu novo salario e %f", Nsal);
+
+}
+
+16
+
+main()
+{
+    float depo, jur, tot, rend;
+
+    printf("Digite o valor do deposito: ");
+    scanf("%f", &depo);
+    printf("Digite o valor do juros: ");
+    scanf("%f", &jur);
+
+    rend= depo*(jur/100);
+    tot= rend + depo;
+
+    printf("o valor total depois do rendimento e %.1f: ", tot);
+
+}
+
+
+17 !!!
+main()
+{
+	printf("Digite os 3 lados do triangulo, sabendo que o terceiro valor e a base: \n");
+	int var1, var2, var3;
+	scanf("%i-%i-%i-%i", &var1, &var2, &var3);
+
+	float h, area;
+
+	h=(((var1^2)-((var3/2)^2))^(1/2));
+	area= ((var3*h)/2);
+
+	printf("A area eh: %f", area);
+
+}
+
+18
+main()
+{
+	printf("Digite o raio da circunferencia: \n");
+	int r;
+	scanf("%i", &r);
+
+	float pi, area;
+
+	pi=3.1415;
+
+	area=(pi*(r*r));
+
+	printf("A area eh: %f", area);
+
+
+}
+
+19
+main()
+{
+    int anoN, anoA, ida,idaF;
+
+    printf("Digite o ano de seu nascimento: ");
+    scanf("%i", &anoN);
+
+
+    printf("Digite o ano atual: ");
+    scanf("%i", &anoA);
+
+    ida= anoA- anoN;
+
+    idaF= 2020-anoN;
+
+    printf("-Sua idade atual e: %i;\n-Voce nasceu em: %i;\n-Sua idade em 2020 e: %i.", ida, anoN, idaF);
+
+
+
+}
+20!!!
+main()
+{
+    int CarroN, Pfab, Luc, imp, impt, LucR;
+
+    printf("Escreva o preço de fabrica do veiculo: ");
+    scanf("%i", &Pfab);
+
+    printf("Escreva o porcentual de lucro do veiculo: ");
+    scanf("%i", &Luc);
+
+    printf("Escreva o porcentual de imposto do veiculo: ");
+    scanf("%i", &imp);
+
+    CarroN= Pfab + Luc + impt;
+    LucR= Pfab+ Luc;
+    impt= Pfab*imp/100;
+
+    printf("O valor correspondente ao lucro do distribuidor e: %i\n;O imposto e: %i;\nO valor final do carro e: %i.", LucR, impt, CarroN);
+
+
+}
+
+21
+main()
+{
+    int hora, recebe, salaM, imp, vhora, salabru;
+
+    printf("Escreva o numero de horas de trabalho: ");
+    scanf("%i", &hora);
+
+    printf("Escreva o valor do salario minimo:");
+    scanf("%i", &salaM);
+
+    vhora= salaM/2;
+
+    salabru= vhora*hora;
+
+    imp= salabru*0.03;
+
+    recebe= salabru- imp;
+
+    printf("O salario a receber e: %i", recebe);
+}
+22
+main()
+{
+    int tam, subi, degra;
+
+    printf("Escreva o tamanho do degrau em cm: ");
+    scanf("%i", &tam);
+
+    printf("Que altuma deseja subir? (em cm): ");
+    scanf("%i", &subi);
+
+    degra= subi/tam;
+
+    printf("você precisa subir: %i", degra);
+
+
+}
+
+23
+Pre-incremento- o incremento acontece na instrução em que a variavel estiver contida
+pos- incremento- o incremento acontece apos uma instrução, ou seja na proxima instrução
+
+____________________________
+
+o primeiro printf ira ocorrer e ira mostrar o valor de i. O proximo printf tera 2 incrementos: Um vindo do pre incremento do instrução anterior e outra da propria instrução
+
+	
+24
+A somo com b, que foi incrementado, ficando 6. Ao chegar a proxima instrução que é mostrar o valor de x na tela, o x recebe um incremento vindo do a da linha anterior ficando 7.
+25
+?
