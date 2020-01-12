@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+void menu(){
+  printf("#####EP0######");
+  printf("[1]Quarto");
+  printf("[2]Segundo");
+  printf("[3]Terceiro");
+  printf("[4]Quarto");
+  printf("##############");
+  printf("Resposta: ");
+  int resp;
+  scanf("%i",&resp);
+  
+  
+  
+}
+
+void main(void){
+	
+	while(true){
+	  menu();
+	}
+}

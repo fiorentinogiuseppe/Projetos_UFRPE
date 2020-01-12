@@ -1,0 +1,726 @@
+2
+//++++++++++++++++
+3.
+#define N 100
+typedef struct {
+	int individuo[N];
+	int esq;
+	int dir;
+} tdeque;
+//cria a fila
+void criaFila(tdeque *fila){
+	deque->esq=0;
+	deque->di=0;
+}
+//testa se a fila esta vazia. Caso esteja retorna 1 caso 
+//contrario returna 0;
+int filaVazia(tdeque* fila){
+	if(fila->esq==fila->dir) return 1;
+	return 0;
+}
+//testa se a fila da direita esta cheia. Caso esteja retorna 1 
+//caso contrario returna 0;
+int filaCheiaD(tdeque *fila){
+	int aux=fila->dir;
+	if((++aux)%N)==fila->esq) return (1);
+	return(0);
+}
+//testa se a fila da esquerda esta cheia. Caso esteja retorna 
+//1 caso contrario returna 0;
+int filaCheiaE(tdeque *fila){
+	int aux=fila->dir;
+	if((--aux)%N)==fila->esq) return (1);
+	return(0);
+}
+//Remove os elementos do lado esquerdo. Recebe a estrutuda que
+//representa a fila e um ponteiro para o valor que sera 
+//removido, pois a funcao retorna 0 caso nao tenha removido na
+// fila e 1 caso tenha removido na fila
+int filaRemoverE(tdeque *fila, int *valor){//procurar oq eh tvalor
+	if(filaVazia(&fila)==1) return (0);
+	fila->esq=(++fila->esq)%N;
+	*valor=fila->elemento[fila->esq];
+	return 1;
+}
+//Remove os elementos do lado direito. Recebe a estrutuda que
+//representa a fila e um ponteiro para o valor que sera 
+//removido, pois a funcao retorna 0 caso nao tenha removido na
+// fila e 1 caso tenha removido na fila
+int filaRemoverD(tdeque *fila, int *valor){
+	if(filaVazia(&fila)==1) return (0);
+	*valor=fila->elemento[fila->dir];
+	fila->dir=(--fila->dir)%N;
+	return 1;
+}
+//adiciona um valor a fila pelo lado esquedo
+int filaInserirD(int valor, tdeque *fila){
+	if(filaCheiaD(&fila,)==1) return (0);
+	fila->dir=(++fila->dir)%N;
+	fila->individuo[fila->dir]=valor;
+	return (1);
+}
+//adiciona um valor a fila pelo lado direito
+int filaInserirE(int valor, tdeque *fila){
+	if(filaCheiaE(&fila,)==1) return (0);
+	fila->individuo[fila->esq]=valor;
+	fila->dir=(--fila->esq)%N;
+	return (1);
+}
+
+//
+4
+//++++++++++++++++
+celula* intercala (celula* a,celula* b)
+{
+    struct reg head;
+    celula * c = &head;
+    c= malloc(sizeof(celula)); 
+    while (a != NULL && b != NULL){
+	
+     if (less(a->conteudo,b->conteudo)) {
+	printf("if:a:%i:-b:%i:\n",a->conteudo,b->conteudo);
+	getchar();
+         c->prox = a;
+         c = a; a = a->prox;
+     }
+     else {
+	printf("else:a:%i:-b:%i:\n",a->conteudo,b->conteudo);
+	getchar();
+         c->prox = b;
+         c = b; b = b->prox;
+     }
+    }
+    c->prox = (a == NULL) ? b : a;
+    return c->prox;
+}				
+//
+5
+//LISTA SIMPLES+++++++++++++++++++++
+struct Node  {
+	int conteudo;
+	struct Node* prox;
+};
+typedef struct dll;
+dll* head; 
+
+dll* novoNo(int x) {
+	dll* newNode = (dll*)malloc(sizeof(dll));
+	newNode->conteudo = x;
+	newNode->prox = NULL;
+	return newNode;
+}
+
+void InserirCabeca() {
+	dll *le;
+	le = malloc (sizeof (dll));
+	le->prox = NULL;
+}
+
+
+void empilha(int x) {
+	dll *nova;
+	nova = mallocc (sizeof (dll));
+	nova->conteudo = x;
+	nova->prox = p->prox;
+	p->prox = nova;
+}
+int desempila(){
+	dll *lixo;
+	lixo = p->prox;
+	p->prox = lixo->prox;
+	free (lixo);
+}
+dll *busca (dll * valor, dll *cabeca)
+{
+   dll *p;
+   p = cabeca;
+   while (p != NULL && p->elemento != valor) 
+      p = p->prox; 
+   return p; 
+}
+void troca(dll *x , dll* y ){
+	dll *anteX;
+	dll *anteY;	
+	dll *proxX=x->prox;
+	dll *proxY=y->prox;
+	if(proxX==NULL || proxY==NULL) return;
+	anteX=(busca(&x,&head))
+	anteY=(busca(&y,&head))
+
+	anteX->prox=y;
+	y->prox=x->prox;
+	anteY->prox=x;
+	x->prox=y->prox;
+}
+//
+
+
+//LISTA DUPLAMENTE LIGADA
+struct Node  {
+	int elemento;
+	struct Node* prox;
+	struct Node* ant;
+};
+typedef struct dll;
+dll* head; 
+
+dll* novoNo(int x) {
+	dll* newNode = (dll*)malloc(sizeof(dll));
+	newNode->elemento = x;
+	newNode->ant = NULL;
+	newNode->prox = NULL;
+	return newNode;
+}
+
+//Inserts a Node at head of doubly linked list
+void InserirCabeca(int x) {
+	dll* newNode = novoNo(x);
+	if(head == NULL) {
+		head = newNode;
+		return;
+	}
+	head->ant = newNode;
+	newNode->prox = head; 
+	head = newNode;
+}
+
+//Inserts a Node at tail of Doubly linked list
+void empilha(int x) {
+	dll* temp = head;
+	dll* newNode = novoNo(x);
+	if(head == NULL) {
+		head = newNode;
+		return;
+	}
+	while(temp->prox != NULL) temp = temp->prox; 
+	temp->prox = newNode;
+	newNode->ant = temp;
+}
+int desempila(){
+	dll* temp = head;
+	dll* newNode = novoNo(x);
+	if(head == NULL) {
+		return;
+	}
+	while(temp->prox != NULL) temp = temp->prox; 
+	(temp->ant)->prox = NULL;
+	free(temp);
+}
+
+void troca(dll *x , dll* y ){
+	dll *anteX=x->ant;
+	dll *anteY=y->ant;;	
+	dll *proxX=x->prox;
+	dll *proxY=y->prox;
+	if(proxX==NULL || proxY==NULL) return;
+
+	anteX->prox=y;
+	y->ant=antX;	
+	y->prox=x->prox;
+
+	anteY->prox=x;
+	x->ant=antY;
+	x->prox=y->prox;
+}
+//
+6
+//
+
+
+//
+11
+//descrever++++++++++++++++++++++++++
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define N 100
+struct reg {
+      char* conteudo; // conteúdo
+      struct reg *esq;
+      struct reg *dir;
+} ; // nó
+typedef struct reg noh;
+int t;
+noh* pilha[N];
+void criapilha (void) {
+   t = 0;
+}
+
+noh* desempilha (void) {
+   return pilha[--t];
+}
+
+void empilha (noh* y) {
+   pilha[t++] = y;
+}
+int pilhavazia (void) {
+   return t <= 0;
+}
+//+++++++++++++++++++++++++++++
+int v;
+int* pilhaNum[N];
+void criapilhaNum(void) {
+   v = 0;
+}
+
+int desempilhaNum (void) {
+   return pilhaNum[--v];
+}
+
+void empilhaNum (int y) {
+   pilhaNum[v++] = y;
+}
+int pilhavaziaNum (void) {
+   return v <= 0;
+}
+//+++++++++++++++++++++++++++++
+
+noh* inicializarArvore(){
+	return NULL;
+}
+int arvoreVazia(noh *raiz){
+	if(!raiz) return (1);
+	else return (0);
+
+}
+noh* arv_cria(char c, noh* sae, noh* sad)
+{
+	 noh* p=(noh*)malloc(sizeof(noh));
+	 if(p==NULL) exit(1);
+	 p->conteudo = c;
+	 p->esq = sae;
+	 p->dir = sad;
+	 return p;
+}
+noh* arv_libera (noh* a){
+ if (!arv_vazia(a)){
+	 arv_libera(a->esq); /* libera sae */
+	 arv_libera(a->dir); /* libera sad */
+	 free(a); /* libera raiz */
+ }
+ return NULL;
+}
+int arv_vazia (noh* a)
+{
+ 	return a==NULL;
+}
+//++++++++++++++
+void subArvores(char v[]){
+	int i;	
+	noh *a;
+	noh *e,*d;
+	criapilha();
+	criapilhaNum();
+	for(i=0;i<strlen(v);i++){
+		if(v[i]=='+'){
+			d=desempilha();
+			e=desempilha();	
+			a=arv_cria(v[i],e,d);
+			empilha(a);
+			
+		}
+		if(v[i]=='*'){
+			d=desempilha();
+			e=desempilha();	
+			a=arv_cria(v[i],e,d);
+			empilha(a);
+			
+		}
+		if(v[i]=='-'){
+			d=desempilha();
+			e=desempilha();	
+			a=arv_cria(v[i],e,d);
+			empilha(a);
+			
+		}
+		if(v[i]=='/'){
+			d=desempilha();
+			e=desempilha();	
+			a=arv_cria(v[i],e,d);
+			empilha(a);
+			
+		}
+		else if(v[i]>='0' && v[i]<='9'){
+			empilha(arv_cria(0,inicializarArvore(),inicializarArvore()));
+		}
+		 while (v[i] >= '0' && (v[i] <= '9')){
+			
+			valor=10 * desempilha()->conteudo + (v[i++] - '0')+'0';
+            		empilha(arv_cria(valor,inicializarArvore(),inicializarArvore()));
+       		}
+
+
+	}
+}
+void edr(noh* r){
+	
+	if(r!=NULL){
+		edr(r->esq);
+		edr(r->dir);
+		printf("%c\n",r->conteudo);
+	}
+}
+
+void main(){
+	
+	int i;
+	char v[]={"5 3 11 +2 8 * * 222 + *"};
+	subArvores(v);
+	edr(desempilha());
+}
+//
+15
+//
+#include<stdio.h>
+#include<stdlib.h>
+#define troca (A, B) { int t = A; A = B; B = t; }
+#define N 100
+
+//ARVORE
+//define a estrutura que representa o no da arvore
+typedef struct reg {
+   int conteudo;
+   struct reg *pai;
+   struct reg *esq, *dir;
+} noh;
+noh fila[N];//cria uma fila de prioridades em um vetor 
+noh* inicializarArvore(){//inicializa a arvore
+	return NULL;
+}
+int arvoreVazia(noh *raiz){//testa se a arvore ta vazia
+	if(!raiz) return (1);
+	else return (0);
+
+}
+noh* arv_cria(int c, noh* sae, noh* sad)//cria a subarvore
+{
+	 noh* p=(noh*)malloc(sizeof(noh));
+	 if(p==NULL) exit(1);
+	 p->conteudo = c;
+	 p->esq = sae;
+	 p->dir = sad;
+	 sae->pai=p;
+	 sad->pai=p;
+	 return p;
+}
+noh* arv_libera (noh* a){//liberar a subarvore de acordo com o nó
+ if (!arv_vazia(a)){
+	 arv_libera(a->esq); /* libera sae */
+	 arv_libera(a->dir); /* libera sad */
+	 free(a); /* libera raiz */
+ }
+ return NULL;
+}
+int arv_vazia (noh* a)
+{
+ 	return a==NULL;
+}
+//FILA DE PRIORIDADES
+// A função recebe um vetor A[1..m−1] e rearranja este de modo a transformar o vetor em um max-heap.
+void corrige-subindo(int A[], int m){//
+	int i=m;
+	 if (r != NULL) {
+      		erd (r->esq);
+      		erd (r->dir); 
+		if(r->dir->conteudo < r-esq->conteudo){
+			if(r->conteudo<r->esq->conteudo){
+				int tmp=r->conteudo;
+				r->conteduo=r->esq->conteduo;
+				r->esq->conteduo=tmp;
+			}
+		}
+		else if(r->dir->conteudo > r-esq->conteudo){
+			if(r->conteudo < r->dir->conteudo){
+				int tmp=r->conteudo;
+				r->conteduo=r->dir->conteduo;
+				r->dir->conteduo=tmp;
+			}
+		}
+   	}
+
+}
+//A ideia da função é: se A[i] é maior ou igual que seus filhos então não é preciso fazer nada; senão, troque A[i] com o maior dos filhos e repita o 
+//processo para o filho envolvido na troca.
+void corrige-descendo(int A[], int n, int i){
+	int j=i;
+	 if (r != NULL) {
+		if(r->dir->conteudo < r-esq->conteudo){
+			if(r->conteudo<r->esq->conteudo){
+				int tmp=r->conteudo;
+				r->conteduo=r->esq->conteduo;
+				r->esq->conteduo=tmp;
+			}
+		}
+		else if(r->dir->conteudo > r-esq->conteudo){
+			if(r->conteudo < r->dir->conteudo){
+				int tmp=r->conteudo;
+				r->conteduo=r->dir->conteduo;
+				r->dir->conteduo=tmp;
+			}
+		}
+		erd (r->esq);
+      		erd (r->dir); 
+   	}
+
+}
+//cria a fila de prioridade
+void criafila (void) {
+   p = 0; u = 0;
+}
+//testa pra saber se a fila esta vazia
+int filavazia (void) {
+   return p >= u;
+}
+//remove da fila e corrige a fila de prioridade
+noh* tiradafila (void) {
+   noh i= fila[p++];
+   corrige-descendo(A,n,i);
+   return i;
+}
+//coloca na fial e corrige a fila de prioridade
+void colocanafila (noh y) {
+   fila[u++] = y;
+   corrige-subindo(A,i);
+}
+
+void movimentarNaFila (noh r) {
+   criafila ();  // cria a fila
+   colocanafila (r);//coloca na fila
+   while (1) {
+      x = tiradafila ();//remove da fila
+      if (x != NULL) {
+         colocanafila(x);
+         colocanafila (x->esq);
+      }
+      else {
+         if (filavazia ()) break;
+         x = tiradafila ();//remover da fila
+         colocanafila (x->dir);
+      }
+   }
+
+}
+
+//
+18
+//++++++++++++++++++++++++++++++++++++++++++++
+
+#include<stdio.h>
+#include<stdlib.h>
+#define M 13
+// Tamanho da tabela.
+
+#define hash(v, M) (v % M)
+// Transforma uma chave v em um �ndice no intervalo 0..M-1.
+
+typedef struct {
+   int chave;
+   int valor;
+} tipoObjeto;
+
+tipoObjeto objetonulo;
+//objetonulo.chave=0;
+
+//contagem 
+struct reg {
+   int     chave, ocorr; 
+   struct reg *prox;
+};
+typedef struct reg celula;
+
+celula **tb;
+tb = (celula *)malloc (M * sizeof (celula *));
+
+//contagem por sondagem linear
+struct reg {
+   int     chave, ocorr; 
+   struct reg *prox;
+};
+typedef struct reg celula;
+
+cell *tb;
+tb = malloc (M * sizeof (cell));
+
+struct STnode {
+   tipoObjeto obj; 
+   struct STnode * next;
+} ;
+typedef struct STnode *link;
+
+link *tab;
+void STinit() 
+{ 
+   int h;
+   tab = malloc(M * sizeof (link));
+   for (h = 0; h < M; h++) 
+      tab[h] = NULL; 
+}
+void STinsert(tipoObjeto obj) 
+{ 
+   int h, v;
+   v = obj.chave;
+   h = hash(v, M);
+   link novo = malloc(sizeof (link));
+   novo->obj = obj;
+   novo->next = tab[h];
+   tab[h] = novo;
+}
+
+tipoObjeto STsearch(int v) 
+{ 
+   link t;
+   int h;
+   h = hash(v, M);
+   for (t = tab[h]; t != NULL; t = t->next) 
+      if (t->obj.chave == v) break;
+   if (t != NULL) return t->obj;
+   return objetonulo;
+}
+void contabiliza (int ch) {
+   int h = hash (ch, M);
+   celula *p = tb[h]; 
+   while (p != NULL && p->chave != ch)
+      p = p->prox;
+   if (p != NULL) 
+      p->ocorr += 1;
+   else {
+      p = malloc (sizeof (celula));
+      p->chave = ch;
+      p->ocorr = 1;
+      p->prox = tb[h];       
+      tb[h] = p;       
+   }
+}
+void contabilizaSond (int ch) {
+   int h = hash (ch, M);
+   cell *p = tb[h]; 
+   while (p != NULL && p->chave != ch)
+      p = p->prox;
+   if (p != NULL) 
+      p->ocorr += 1;
+   else {
+      p = malloc (sizeof (cell));
+      p->chave = ch;
+      p->ocorr = 1;
+      p->prox = tb[h];       
+      tb[h] = p;       
+   }
+}
+//
+18//
+#include<stdio.h>
+#include<stdlib.h>
+#define M 8191
+// Tamanho da tabela.
+
+#define hash(v, M) (v % M)
+// Transforma uma chave v em um �ndice no intervalo 0..M-1.
+
+typedef struct {
+   int chave;
+   int ocorr;
+} tipoObjeto;
+
+tipoObjeto objetonulo;
+// Todas as chaves "v�lidas" s�o estritamente positivas.
+
+// Defini��o de um n� das listas de colis�es.
+typedef struct STnode *link;
+struct STnode {
+   tipoObjeto obj; 
+   link       next;
+} ;
+
+// Tabela que aponta para as M listas de colis�es.
+link *tab;
+// Inicializa uma tabela de s�mbolos que, espera-se, armazenar� 
+// cerca de 50000 objetos. A espinha dorsal da tabela ser� um 
+// vetor tab[0..M-1].
+//
+void salvar(int valor){
+	FILE*arq;
+	arq=fopen("numeros1.txt","r");
+	if(arq==NULL) arq=fopen("numeros1.txt","w");
+	else arq=fopen("numeros1.txt","a");
+	printf("%i",valor);
+	fprintf(arq,"%i\n",valor);
+	
+}
+void STinit() 
+{ 
+   int h;
+   tab = malloc(M * sizeof (link));
+   for (h = 0; h < M; h++) 
+      tab[h] = NULL; 
+}
+
+// Insere obj na tabela de s�mbolos.
+//
+void STinsert(tipoObjeto obj) 
+{ 
+	int h, v;
+	v = obj.chave;
+	h = hash(v, M);
+	link t=tab[h];
+	for (t = tab[h]; t != NULL; t = t->next) {      
+		if (t->obj.chave == v) break;
+	}	
+	if (t != NULL) 
+      		t->obj.ocorr++;
+	if(t==NULL){
+		obj.ocorr=1;
+		link novo = malloc(sizeof (link));
+		novo->obj = obj;
+		novo->next = tab[h];
+		tab[h] = novo;
+		salvar(obj.chave);
+	}
+}
+
+// Devolve um objeto cuja chave � v. Se tal objeto n�o existe,
+// a fun��o devolve um objeto fict�cio com chave nula.
+//
+tipoObjeto STsearch(int v) 
+{ 
+   link t;
+   int h;
+   h = hash(v, M);
+   for (t = tab[h]; t != NULL; t = t->next) {      
+	if (t->obj.chave == v) break;
+	}
+
+   if (t != NULL) return t->obj;
+	
+   return objetonulo;
+}
+
+static void imprime ()
+{	
+	link p;
+	int i=0;
+	for (i=0; i<M; i++)
+		for (p=tab[i]; p!=NULL; p=p->next)
+			printf("key%i-ocorr%i\n",p->obj.chave,p->obj.ocorr);
+}
+
+int main (void)
+{	objetonulo.chave = 0;
+	STinit();
+	FILE* fp;
+	fp=fopen("numeros.txt","rt");
+	if(fp==NULL) {
+		printf("ERRO na abertura do arquivo.\n");
+		return 0;
+	}
+	int c;
+	fscanf(fp,"%d",&c);
+	tipoObjeto novo;
+	while(!feof(fp)){
+		novo.chave=c;
+		STinsert(novo);
+		fscanf(fp,"%d",&c);
+	}
+	imprime();
+	return 0;
+}
+//

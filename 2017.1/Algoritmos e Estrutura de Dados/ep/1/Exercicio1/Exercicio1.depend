@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1494774463 source:/home/giuseppe/2017.1/c/algoritmos/ep/1/Exercicio1/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1494978537 source:/home/giuseppe/2017.1/c/algoritmos/ep/1/Exercicio1/1.c
+	<stdio.h>
+	<stdlib.h>
+

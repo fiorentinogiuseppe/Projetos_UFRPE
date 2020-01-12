@@ -1,0 +1,27 @@
+merge=load("questao")
+selection=load("questao")
+insertion=load("questao")
+quick=load("questao")
+heap=load("questao")
+
+Ymerge=merge(:,3)
+Yinsertion=insertion(:,3)
+Yselection=selection(:,3)
+Yquick=quick(:,3)
+Yheap=heap(:,3)
+
+tamMerge=merge(:,4)
+tamSelection=selection(:,4)
+tamInsertion=insertion(:,4)
+tamQuick=quick(:,4)
+tamHeap=heap(:,4)
+
+plot(tamMerge,Ymerge)
+hold on
+plot(tamInsertion,Yinsertion)
+hold on
+plot(tamSelection,Yselection)
+hold on
+plot(tamQuick,Yquick)
+hold on
+plot(tamHeap,Yheap)

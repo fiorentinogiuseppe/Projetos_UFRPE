@@ -1,0 +1,9 @@
+#Iterativo-#Recursivo-Diferenca-#Tamanho;
+0		0	0	9
+0		0	0	9
+11		49	38	9
+11		49	38	9
+11		49	38	9
+11		49	38	9
+11		49	38	9
+11		49	38	9

@@ -1,0 +1,49 @@
+1.
+int maiorRecu(int e,int n,int v[]){//O algoritmo recursivo que busca encontrar o máximo de um vetor de inteiros atraves
+//da divisao e conquista
+    contadorRecu++;
+    int m, d = n;
+    if( e==d-1 ) return  v[e];// condição do caso base
+    m=(e+d)/2;//momento em qua ocorre a divisao do vetor ao meio
+
+    int x=maiorRecu(e,m,v);//chamada recursiva para  primeira metade
+    int y=maiorRecu(m,d,v);// chamada recursiva para a segunda metade
+
+    if(x>y) return x; //condicao parada
+    else return y;
+
+}
+Primeiramente temos que os algoritmos que se encontram na questão possuem a complexidade O(nlg(n)) e O(n²). Temos que O(nlg(n)) possui uma complexidade melhor que O(n²). 
+O algoritmo que foi desenvolvido na questao possui uma complexidade O(lg(n)). Como O(lg(n)) é melhor q O(nlg(n)) temos que o algoritmo aqui desenvolvido é mais eficiente que os outros 2 que foi dado na questao.
+
+2.
+a)
+//A função recebe um inteiro, que representa o tamanho do verto, e um vetor. E testa, a partir dos filhos, se a estrutura é um heap ou nao
+int testarHeap(int n,int v[]){
+	for(int f=n;f>1;f--) if(v[f/2]<v[f] && (f/2)>1) return 0; //retorna 0 caso false
+	return 1;//retorna 1 caso true
+}
+//FALTA COMPLEXIDADE
+b)
+
+3
+Para resolver um tal problema devemos entender que a fila eh uma estrutura do tipo FIFO. Assim sempre o elemento que esta a mais tempo na fila deve sair, ou seja o primeiro.
+Ao usar uma pilha esta sempre irá apontar para o ultimo elemento da pilha, pois ela é uma estrutura do tipo LIFO. Para que ela se comporte como uma fila precisamos de mais outra pilha, pois essa irá armazenar todos os elementos da pilha anterior na ordem em que for desempilhada. Caso a primeira pilha esteja na ordem (1 2 3) ao ser desempilhada e empilhada na segunda fila a ordem será (3 2 1). Só assim é possivel acessar o primeiro elemento da fila e remove-lo ficando (3 2) e em seguida desempilhar tudo e empilhar novamente na primeira fila ficando (2 3). 
+A complexidade será: O()
+	
+///////////////FALTA A COMPLEXIDADE
+4
+
+Vamos considerar ja implementados as funções de manupulação de uma lista. E também considerar que a nova lista ja foi declarada antes de entrar na função (como variavel global)
+Para resolver este problema, podemos aplicar o seguinte método:
+
+* se a instância o proximo elemento da lista for NULO, 
+	retorna o elemento em questão;
+* senão,
+	chama novamente a função para o proximo elemento da lista
+Ao chegar no fim da lista a função começará a retornar os elementos da lista do fim para o começa. Então é só criar uma nova lista e inserir todos os elementos que forem sendo retornados nessa nova lista. 
+Assim sua complexidade será O(n). Pois terá que mover-se pela lista até chegar no n-esimo elemento da lista.
+
+5
+a)
+b)
